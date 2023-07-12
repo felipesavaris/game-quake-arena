@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "game-quake-arena"
+version = "0.0.1"
+description = ""
+authors = ["Felipe Savaris"]
+readme = "README.md"
+packages = [{include = "game_quake_arena"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+blue = "^0.9.1"
+isort = "^5.12.0"
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
