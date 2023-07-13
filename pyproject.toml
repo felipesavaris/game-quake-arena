@@ -8,6 +8,8 @@ packages = [{include = "game_quake_arena"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+fastapi = "^0.100.0"
+uvicorn = "^0.22.0"
 
 
 [tool.poetry.group.dev.dependencies]
