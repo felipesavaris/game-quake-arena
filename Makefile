@@ -1,7 +1,7 @@
 run-parser:
 	@poetry run python scripts/parser/parser.py
 
-run-quake-api:
+run-api:
 	@poetry run python quake_arena_api/main.py
 
 blue:
