@@ -28,7 +28,7 @@ def _save_games(games: list[dict]) -> None:
         json.dump(games, database)
 
 
-def _parser_game_event_actions(log_file):
+def _parser_game_event_actions(log_file) -> None:
     game_number = 0
     game = None
 

@@ -3,4 +3,4 @@ class Game:
         self.game: str = f'game_{number}'
         self.total_kills: int = 0
         self.players: list[str] = []
-        self.kills: dict = {}
+        self.kills: dict[str, int] = {}
