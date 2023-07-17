@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from games.controller import router
+from quake_arena_api.games.controller import router
 
 
 app = FastAPI(
@@ -12,4 +12,4 @@ app.include_router(router=router)
 if __name__ == '__main__':
     import uvicorn
 
-    uvicorn.run('main:app', reload=True)
+    uvicorn.run('quake_arena_api.main:app', reload=True)

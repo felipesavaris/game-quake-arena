@@ -3,7 +3,7 @@ import json
 from fastapi import Depends
 from typing import Annotated
 
-from games.schemas import GameCollectionResponse, GameOut
+from quake_arena_api.games.schemas import GameCollectionResponse, GameOut
 
 
 with open('games_results.json', 'r') as database:

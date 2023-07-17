@@ -1,4 +1,4 @@
-from models import Game
+from scripts.parser.models import Game
 
 
 def _validate_player_exists(player: str, game: Game) -> bool:
@@ -16,7 +16,7 @@ def _add_player_kills_stucture(name: list[str], game: Game) -> None:
 
 
 def _increment_kills(player: str, game: Game) -> None:
-    if (player != '<world>'):
+    if player != '<world>':
         value = game.kills.get(player)
         game.kills.update({player: int(value + 1)})
 

@@ -1,7 +1,11 @@
 import json
 
-from utils import add_players, update_players_kills, increment_total_kills
-from models import Game
+from scripts.parser.models import Game
+from scripts.parser.utils import (
+    add_players,
+    update_players_kills,
+    increment_total_kills,
+)
 
 
 data_objects = []

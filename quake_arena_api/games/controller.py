@@ -1,8 +1,11 @@
 from fastapi import APIRouter, HTTPException, status
 
-from games.responses import InternalServerErrorResponse, NotFoundErrorResponse
-from games.schemas import GameCollectionResponse, GameOut
-from games.usecases import GameUseCaseDependency
+from quake_arena_api.games.responses import (
+    InternalServerErrorResponse,
+    NotFoundErrorResponse,
+)
+from quake_arena_api.games.schemas import GameCollectionResponse, GameOut
+from quake_arena_api.games.usecases import GameUseCaseDependency
 
 
 router = APIRouter(tags=['games'], prefix='/v0/games')
