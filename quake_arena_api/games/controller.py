@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
 
 from games.responses import InternalServerErrorResponse, NotFoundErrorResponse
-from games.schemas import GameOut
+from games.schemas import GameCollectionResponse, GameOut
 from games.usecases import GameUseCaseDependency
 
 
@@ -25,5 +25,18 @@ async def get(name: str, use_case: GameUseCaseDependency) -> GameOut:
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f'Object not found on Games for name: {name}',
         )
+    except Exception:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@router.get(
+    '',
+    description='List all games',
+    status_code=status.HTTP_200_OK,
+    responses={500: {'model': InternalServerErrorResponse}},
+)
+async def query(use_case: GameUseCaseDependency) -> GameCollectionResponse:
+    try:
+        return await use_case.query()
     except Exception:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
