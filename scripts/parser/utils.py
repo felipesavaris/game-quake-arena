@@ -16,7 +16,7 @@ def _add_player_kills_stucture(name: list[str], game: Game) -> None:
 
 
 def _increment_kills(player: str, game: Game) -> None:
-    if (player != '<world>') or (player != player):
+    if (player != '<world>'):
         value = game.kills.get(player)
         game.kills.update({player: int(value + 1)})
 
