@@ -1,4 +1,5 @@
 import json
+from typing import Any
 
 from scripts.parser.models import Game
 from scripts.parser.utils import (
@@ -32,9 +33,9 @@ def _save_games(games: list[dict]) -> None:
         json.dump(games, database)
 
 
-def _parser_game_event_actions(log_file) -> None:
+def _parser_game_event_actions(log_file) -> list[dict[str, Any]]:
     game_number = 0
-    game = None
+    game, all_games = None, None
 
     for log in log_file:
         if 'InitGame' in log:
@@ -63,6 +64,8 @@ def _parser_game_event_actions(log_file) -> None:
         if game:
             all_games = _stores_running_data(game)
             _save_games(games=all_games)
+
+    return all_games
 
 
 if __name__ == '__main__':
