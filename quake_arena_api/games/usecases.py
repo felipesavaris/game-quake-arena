@@ -6,16 +6,21 @@ from typing import Annotated
 from quake_arena_api.games.schemas import GameCollectionResponse, GameOut
 
 
-with open('games_results.json', 'r') as database:
+async def _read_games_data():
     games = None
-    data = database.read()
+    with open('games_results.json', 'r') as database:
+        data = database.read()
 
-    if data:
-        games = json.loads(data)
+        if data:
+            games = json.loads(data)
+
+    return games
 
 
 class GameUseCase:
     async def get(self, name: str) -> GameOut:
+        games = await _read_games_data()
+
         for game in games:
             if game.get(name):
                 return GameOut(**game[name])
@@ -23,6 +28,8 @@ class GameUseCase:
 
     async def query(self) -> GameCollectionResponse:
         results = []
+        games = await _read_games_data()
+
         for game in games:
             key = (*game,)[0]
 
